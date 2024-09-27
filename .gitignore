@@ -1,9 +1,14 @@
 # Java & Spring Boot 관련
-*.class
-*.jar
-*.war
-target/
-build/
+backend/*.class
+backend/*.jar
+backend/*.war
+backend/target/
+backend/build/
+.idea
+backend/.gradle
+!backend/gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 # Python 관련
 __pycache__/
@@ -11,3 +16,32 @@ __pycache__/
 *.pyo
 venv/
 
+### STS ###
+backend/.apt_generated
+backend/.classpath
+backend/.factorypath
+backend/.project
+backend/.settings
+backend/.springBeans
+backend/.sts4-cache
+backend/bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+backend/*.iws
+backend/*.iml
+backend/*.ipr
+backend/out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
