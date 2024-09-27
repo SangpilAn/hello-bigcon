@@ -1,0 +1,13 @@
+# Java & Spring Boot 관련
+*.class
+*.jar
+*.war
+target/
+build/
+
+# Python 관련
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+
