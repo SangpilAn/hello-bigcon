@@ -1,0 +1,59 @@
+/* start_page.css */
+
+/* 타이틀 이미지 */
+.titleImg {
+  display: flex;
+  justify-content: center;
+}
+
+/* 채팅 박스 */
+.chat-container {
+  display: flex;
+  align-items: flex-start;
+  /* 아이콘 & 텍스트 상단 정렬 */
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* 말풍선 스타일 */
+.chat-bubble {
+  background-color: #f1f0f0;
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 80%;
+}
+
+/* 챗봇 아이콘 */
+.chat-icon {
+  width: 40px;
+  margin-right: 5px;
+  /* 말풍선과의 간격 */
+}
+
+/* 말풍선 텍스트 */
+.chat-bubble .chat-text {
+  font-size: 15px;
+  /* 말풍선 안 텍스트 크기 */
+  line-height: 1.5;
+  /* 텍스트 사이 높이 */
+}
+
+/* 버튼 컨테이너 (위치조정용) */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  /* 오른쪽 정렬 */
+  margin-top: 200px;
+  /* 버튼 위쪽 여백 */
+}
+
+/* footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+}

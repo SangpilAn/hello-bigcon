@@ -1,0 +1,7 @@
+# requirements.txt: FE 의존성 목록
+
+streamlit
+# requests
+
+
+# FE 실행 (BE가 실행된 상태에서 FE 디렉토리에서): streamlit run app.py

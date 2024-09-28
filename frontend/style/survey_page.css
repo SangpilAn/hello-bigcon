@@ -1,0 +1,71 @@
+/* survey_page.css */
+
+/* 채팅 박스 */
+.chat-container {
+  display: flex;
+  align-items: flex-start;      /* 아이콘 & 텍스트 상단 정렬 */
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* 사용자 채팅 박스 */
+.user-chat-container {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  width: 100%;               /* 전체 너비 사용 */
+  margin-bottom: 10px;
+}
+
+/* 말풍선 스타일 */
+.chat-bubble {
+  background-color: #f1f0f0;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px 0;
+  max-width: 80%;
+  display: inline-block;
+  position: relative;
+}
+
+/* 챗봇 아이콘 */
+.chat-icon {
+  width: 40px;
+  margin-right: 5px;             /* 말풍선과의 간격 */
+}
+
+/* 말풍선 텍스트 */
+.chat-bubble .chat-text {
+  font-size: 17px;               /* 말풍선 안 텍스트 크기 */
+  line-height: 1.5;              /* 텍스트 사이 높이 */
+}
+
+/* 말풍선 텍스트 */
+.chat-bubble .user-chat-text {
+  font-size: 20px;              /* 말풍선 안 텍스트 크기 */
+  font-weight: bold;            /* 사용자 텍스트 굵게 */
+  line-height: 1.5;             /* 텍스트 사이 높이 */
+}
+
+/* 말풍선 내 버튼 */
+.chat-bubble .button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+  background-color: #ffae00;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 버튼 호버 효과 */
+.chat-bubble .button:hover {
+  background-color: #ff9334;
+}
+
+/* 라디오버튼 수평 배치 */
+div.row-widget.stRadio > div {
+  flex-direction: row;
+}
