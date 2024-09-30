@@ -302,10 +302,7 @@ else:
 
                     # 시작하기 버튼 (or 로그인 버튼)
                     st.write("")
-                    start_button = st.link_button("다음으로",
-                                                  "/main",
-                                                  help="챗봇 페이지로 이동",
-                                                  disabled=False,
-                                                  use_container_width=False
-                                                  )
+                    start_button = st.page_link("pages/main.py",
+                                                label="다음으로👉"
+                                                )
 
