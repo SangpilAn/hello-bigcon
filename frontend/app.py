@@ -2,7 +2,18 @@
 import streamlit as st
 
 # 페이지 제목 설정
-st.set_page_config(page_title="시작 페이지", page_icon=":🍊:", layout="wide")
+st.set_page_config(page_title="시작 페이지", page_icon=":🍊:", layout="wide",
+                   initial_sidebar_state='collapsed')
+
+# 사이드바 가림
+st.markdown(
+    """
+<style>
+    [data-testid="collapsedControl"] {
+        display: none
+    }
+</style>
+""", unsafe_allow_html=True,)
 
 # CSS 파일 불러오기
 with open('style/start_page.css', encoding='utf-8') as css_file:
@@ -54,10 +65,6 @@ st.markdown(f"""
 # 시작하기 버튼 (or 로그인 버튼)
 st.write("")
 
-start_button = st.link_button("시작하기",
-                              "/survey",
-                              help="survey로 이동 혹은 구글 로그인",
-                              disabled=False,
-                              use_container_width=True
-                              )
+start_button = st.page_link("pages/survey.py",
+                              label="✈️시작하기🚢")
 

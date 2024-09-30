@@ -6,7 +6,18 @@ import datetime, time
 botImgPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/dolhareubang.png'
 
 # 페이지 제목 설정
-st.set_page_config(page_title="survey", page_icon=":clipboard:", layout="wide")
+st.set_page_config(page_title="survey", page_icon=":clipboard:", layout="wide",
+                   initial_sidebar_state='collapsed')
+
+# 사이드바 가림
+st.markdown(
+    """
+<style>
+    [data-testid="collapsedControl"] {
+        display: none
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # CSS 파일 불러오기
 with open('style/survey_page.css', encoding='utf-8') as css_file:
