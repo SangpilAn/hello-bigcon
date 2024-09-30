@@ -1,5 +1,6 @@
 # app.py
 import streamlit as st
+# test
 
 # 페이지 제목 설정
 st.set_page_config(page_title="시작 페이지", page_icon=":🍊:", layout="wide",
