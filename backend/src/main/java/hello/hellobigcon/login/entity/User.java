@@ -1,4 +1,4 @@
-package hello.hellobigcon.login.domain;
+package hello.hellobigcon.login.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

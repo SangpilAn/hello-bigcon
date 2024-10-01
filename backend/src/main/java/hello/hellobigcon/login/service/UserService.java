@@ -1,6 +1,6 @@
 package hello.hellobigcon.login.service;
 
-import hello.hellobigcon.login.domain.User;
+import hello.hellobigcon.login.entity.User;
 import hello.hellobigcon.login.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

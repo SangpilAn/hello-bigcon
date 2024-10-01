@@ -1,6 +1,6 @@
 package hello.hellobigcon.security.service;
 
-import hello.hellobigcon.login.domain.User;
+import hello.hellobigcon.login.entity.User;
 import hello.hellobigcon.login.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

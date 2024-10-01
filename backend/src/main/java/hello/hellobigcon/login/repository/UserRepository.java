@@ -1,6 +1,6 @@
 package hello.hellobigcon.login.repository;
 
-import hello.hellobigcon.login.domain.User;
+import hello.hellobigcon.login.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

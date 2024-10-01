@@ -1,6 +1,6 @@
 package hello.hellobigcon.login.controller;
 
-import hello.hellobigcon.login.domain.User;
+import hello.hellobigcon.login.entity.User;
 import hello.hellobigcon.login.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
