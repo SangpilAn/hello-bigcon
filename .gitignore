@@ -9,6 +9,7 @@ backend/.gradle
 !backend/gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+**/*-oauth.yml
 
 # Python 관련
 __pycache__/
