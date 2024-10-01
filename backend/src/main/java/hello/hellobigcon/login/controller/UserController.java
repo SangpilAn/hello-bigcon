@@ -2,6 +2,7 @@ package hello.hellobigcon.login.controller;
 
 import hello.hellobigcon.login.entity.User;
 import hello.hellobigcon.login.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,6 +64,12 @@ public class UserController {
         HashMap<String, String> map = new HashMap<>();
         map.put("test", "/api/test");
         return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request){
+        request.getSession().removeAttribute("token");
+        return ResponseEntity.ok("Logout 성공");
     }
 
 }

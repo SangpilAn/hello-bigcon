@@ -36,12 +36,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         try {
             String token = resolveToken(request);
             if (token != null && jwtTokenProvider.validateToken(token)) {
-                // TODO 로그아웃 확인 기능 추가 필요
+                // 로그아웃 확인 기능 - 세션의 토큰값으로 확인
+                if (request.getSession().getAttribute("token") == null) {
+                    throw new JwtLogoutException("로그아웃되었습니다.");
+                }
 
-                String userEmail = jwtTokenProvider.getEmail(token);
+                String username = jwtTokenProvider.getName(token);
 
                 UserDetails userDetails = User.builder()
-                        .username(userEmail)
+                        .username(username)
                         .password("") // 패스워드 필요 없음
                         .roles("USER")
                         .build();

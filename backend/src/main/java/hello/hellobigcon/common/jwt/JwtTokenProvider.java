@@ -33,12 +33,12 @@ public class JwtTokenProvider {
     }
 
     // JWT 토큰 생성
-    public String createToken(String userEmail) {
+    public String createToken(String name) {
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
         return Jwts.builder()
-                .setSubject(userEmail)
+                .setSubject(name)
                 .setIssuedAt(now)
                 .setExpiration(validity)
                 .signWith(key, SignatureAlgorithm.HS512) // HS512 알고리즘으로 서명
@@ -55,8 +55,8 @@ public class JwtTokenProvider {
         }
     }
 
-    // JWT 토큰에서 사용자 이메일 추출
-    public String getEmail(String token) {
+    // JWT 토큰에서 사용자 PK 추출
+    public String getName(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
