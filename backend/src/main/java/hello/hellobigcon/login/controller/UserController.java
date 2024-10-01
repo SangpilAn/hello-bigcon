@@ -3,10 +3,13 @@ package hello.hellobigcon.login.controller;
 import hello.hellobigcon.login.entity.User;
 import hello.hellobigcon.login.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -53,6 +56,13 @@ public class UserController {
         } else {
             return ResponseEntity.status(401).body("Invalid credentials");
         }
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<Map<String, String>> test(){
+        HashMap<String, String> map = new HashMap<>();
+        map.put("test", "/api/test");
+        return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
 }
