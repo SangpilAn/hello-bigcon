@@ -1,6 +1,6 @@
 # mainpage.py
 import streamlit as st
-from pages.subpages import sidebar
+from pages.subpages import sidebar, tab_chat, tab_map, tab_trend
 
 # 페이지 제목 설정
 st.set_page_config(page_title="main", page_icon="💬", layout="wide",
@@ -17,8 +17,8 @@ with st.sidebar:
 # tabs
 tab1, tab2, tab3 = st.tabs(['Chat', 'Maps', 'Trends'])
 with tab1:
-    st.write("tab1 here")
+    tab_chat.show_tab_chat()
 with tab2:
-    st.write("tab2 here")
+    tab_map.show_tab_map()
 with tab3:
-    st.write("tab3 here")
+    tab_trend.show_tab_trend()
