@@ -3,7 +3,7 @@ import streamlit as st
 import datetime, time
 
 # 이미지 변수 선언
-botImgPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/dolhareubang.png'
+botImgPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/dolhareubang2.png'
 
 # 페이지 제목 설정
 st.set_page_config(page_title="survey", page_icon=":clipboard:", layout="wide",
@@ -302,7 +302,7 @@ else:
 
                     # 시작하기 버튼 (or 로그인 버튼)
                     st.write("")
-                    start_button = st.page_link("pages/main.py",
+                    start_button = st.page_link("pages/chat.py",
                                                 label="다음으로👉"
                                                 )
 
