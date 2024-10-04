@@ -30,7 +30,7 @@ def show_sidebar():
 
   # 1-4. 방문 시간대
   if 'visit_times' in st.session_state:
-      st.sidebar.markdown(f"**방문 시간대**: {st.session_state['visit_times']}")
+      st.sidebar.markdown(f"**방문 시간대**: :rainbow[{st.session_state['visit_times']}]")
   else:
       st.sidebar.warning("시간대 정보가 입력되지 않았습니다.")
 
@@ -46,7 +46,7 @@ def show_sidebar():
                use_container_width=True):
      edit_modal.show_edit_modal()
   
-  st.markdown("<hr>", unsafe_allow_html=True)
+  st.divider()
 
 
   ### 2. 달력 위젯 ###
@@ -56,6 +56,6 @@ def show_sidebar():
   weather.show_weather()
 
   ### 4. 로그아웃 버튼 ###
-  if st.button("로그아웃➡️",
-               type='secondary'):
+  if st.button("로그아웃",
+               type='primary'):
      logout_modal.show_logout_modal()

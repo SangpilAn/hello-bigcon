@@ -28,7 +28,6 @@ with open('style/survey_page.css', encoding='utf-8') as css_file:
 st.title("📋시작 하기 전에")
 st.caption("🚀 caption을 작성하는 부분")
 
-
 ##### progress bar #####
 if 'percent_complete' not in st.session_state:
     st.session_state['percent_complete'] = 0
@@ -37,7 +36,7 @@ progressText = f"진행중.. {st.session_state['percent_complete']}%"
 progress = st.progress(st.session_state['percent_complete'])
 progress.progress(st.session_state['percent_complete'], text=progressText)
 
-st.markdown("<hr>", unsafe_allow_html=True)
+st.divider()
 st.write(" ")
 
 ########################
@@ -59,7 +58,7 @@ col1, col2 = st.columns(2)
 def onClick(selection_input):
     st.session_state['gender'] = selection_input
     st.session_state['percent_complete'] += 20         # progres bar +20
-    
+
 if 'gender' not in st.session_state:
     with col1:
         selected = st.button('남성', on_click=onClick, args=('남성',), use_container_width=True)
@@ -99,7 +98,7 @@ else:
     # 연령대 selectbox
     if 'age' not in st.session_state:
         st.write("")
-        st.markdown("<hr>", unsafe_allow_html=True)
+        st.divider()        
         age = st.selectbox("연령대를 선택해주세요", 
                         ("연령대를 선택해주세요", "10대", "20대", "30대", "40대", "50대", "60대 이상"), 
                         key="age_select", label_visibility="collapsed")
@@ -149,7 +148,7 @@ else:
         one_week_later = today + datetime.timedelta(days=7)
 
         if 'visit_dates' not in st.session_state:
-            st.markdown("<hr>", unsafe_allow_html=True)
+            st.divider()
             # 날짜 선택 (기본값은 현재 날짜 ~ 일주일 후)
             visit_dates = st.date_input(
                 "제주도 방문일 선택",
@@ -205,7 +204,7 @@ else:
             if 'visit_times' not in st.session_state:
                 # 방문 시간대 선택 (single select)
                 st.write("")
-                st.markdown("<hr>", unsafe_allow_html=True)
+                st.divider()
                 visit_times = st.radio(
                     "방문 시간대 선택",
                     options=["아침", "점심", "저녁", "야식", "심야"],
@@ -259,7 +258,7 @@ else:
                 if 'region' not in st.session_state:
                     # 지역 선택 (multiselect)
                     st.write("")
-                    st.markdown("<hr>", unsafe_allow_html=True)
+                    st.divider()
                     visit_region = st.multiselect(
                         "제주도 방문 지역 선택",
                         options=["제주시 서부 (애월읍, 한림읍, 한경면)", "제주시 (제주시)", "제주시 동부 (조천읍, 구좌읍)",

@@ -32,7 +32,7 @@ titleImg = (f"""
 st.markdown(titleImg, unsafe_allow_html=True)
 
 st.caption("🚀 caption을 작성하는 부분")
-st.markdown("<hr>", unsafe_allow_html=True)
+st.divider()
 
 # 말풍선
 st.markdown(f"""
@@ -65,4 +65,4 @@ st.markdown(f"""
 st.write("")
 
 start_button = st.page_link("pages/survey.py",
-                              label="✈️시작하기🚢")
+                              label="✈️:rainbow[시작하기]🚢")
