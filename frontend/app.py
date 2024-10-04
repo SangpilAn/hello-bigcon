@@ -66,4 +66,3 @@ st.write("")
 
 start_button = st.page_link("pages/survey.py",
                               label="✈️시작하기🚢")
-

@@ -69,3 +69,8 @@
 div.row-widget.stRadio > div {
   flex-direction: row;
 }
+
+/* 제주도 지도 */
+.jejumap {
+  width: 450px;
+}

@@ -2,6 +2,9 @@
 import streamlit as st
 import datetime
 
+# 이미지 변수 선언
+jejumapPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/jejumap3.png'
+
 # sidebar 사용자 정보 수정하기 모달
 @st.dialog("여행 정보 수정하기")
 def show_edit_modal():
@@ -13,6 +16,7 @@ def show_edit_modal():
       options=['남성', '여성'],
       index=['남성', '여성'].index(st.session_state.get('gender', '남성'))
    )
+   st.write("")
 
    # 연령대 수정 (셀렉트박스)
    age = st.selectbox(
@@ -20,6 +24,7 @@ def show_edit_modal():
       options=["10대", "20대", "30대", "40대", "50대", "60대 이상"],
       index=["10대", "20대", "30대", "40대", "50대", "60대 이상"].index(st.session_state.get('age', "20대"))
    )
+   st.write("")
 
    # 방문 날짜 수정 (날짜 선택기)
    today = datetime.datetime.now()
@@ -29,6 +34,7 @@ def show_edit_modal():
       min_value=today,
       max_value=today.replace(year=today.year + 1),
    )
+   st.write("")
 
    # 방문 시간대 수정 (라디오 버튼)
    visit_times = st.radio(
@@ -36,13 +42,19 @@ def show_edit_modal():
       options=["아침", "점심", "저녁", "야식", "심야"],
       index=["아침", "점심", "저녁", "야식", "심야"].index(st.session_state.get('visit_times', "아침"))
    )
+   st.write("")
 
    # 방문 지역 수정 (멀티셀렉트)
+   st.markdown(f"""
+               <img src="{jejumapPath}" class="jejumap" alt="제주도 지도" style="width: 100%; height: auto;"/>
+   """, unsafe_allow_html=True)
    region = st.multiselect(
       "방문 지역을 선택해주세요:",
-      options=["동쪽 제주시", "서쪽 제주시", "동쪽 서귀포시", "서쪽 서귀포시"],
-      default=st.session_state.get('region', [])
+      options=["제주시 서부 (애월읍, 한림읍, 한경면)", "제주시 (제주시)", "제주시 동부 (조천읍, 구좌읍)",
+               "서귀포시 서부 (대정읍, 안덕면)", "서귀포시 (중문, 서귀포시)", "서귀포시 동부 (남원읍, 표선면, 성산읍)"],
+      default=st.session_state.get('region', []),
    )
+   st.write("")
 
    # 수정 내용 저장 버튼
    if st.button("수정 내용 저장"):

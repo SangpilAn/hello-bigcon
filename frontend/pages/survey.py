@@ -4,6 +4,7 @@ import datetime, time
 
 # 이미지 변수 선언
 botImgPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/dolhareubang2.png'
+jejumapPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/jejumap3.png'
 
 # 페이지 제목 설정
 st.set_page_config(page_title="survey", page_icon=":clipboard:", layout="wide",
@@ -58,7 +59,7 @@ col1, col2 = st.columns(2)
 def onClick(selection_input):
     st.session_state['gender'] = selection_input
     st.session_state['percent_complete'] += 20         # progres bar +20
-
+    
 if 'gender' not in st.session_state:
     with col1:
         selected = st.button('남성', on_click=onClick, args=('남성',), use_container_width=True)
@@ -98,6 +99,7 @@ else:
     # 연령대 selectbox
     if 'age' not in st.session_state:
         st.write("")
+        st.markdown("<hr>", unsafe_allow_html=True)
         age = st.selectbox("연령대를 선택해주세요", 
                         ("연령대를 선택해주세요", "10대", "20대", "30대", "40대", "50대", "60대 이상"), 
                         key="age_select", label_visibility="collapsed")
@@ -147,6 +149,7 @@ else:
         one_week_later = today + datetime.timedelta(days=7)
 
         if 'visit_dates' not in st.session_state:
+            st.markdown("<hr>", unsafe_allow_html=True)
             # 날짜 선택 (기본값은 현재 날짜 ~ 일주일 후)
             visit_dates = st.date_input(
                 "제주도 방문일 선택",
@@ -202,7 +205,7 @@ else:
             if 'visit_times' not in st.session_state:
                 # 방문 시간대 선택 (single select)
                 st.write("")
-                # st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+                st.markdown("<hr>", unsafe_allow_html=True)
                 visit_times = st.radio(
                     "방문 시간대 선택",
                     options=["아침", "점심", "저녁", "야식", "심야"],
@@ -245,7 +248,8 @@ else:
                             <strong>{st.session_state['visit_times']}</strong>을(를) 선택하셨습니다. <br>
                             마지막 질문입니다. <br>
                             제주도 <strong>어느 지역의 맛집</strong>을 찾으시나요? <br>
-                            <strong>하나 이상</strong> 선택할 수 있습니다.
+                            <strong>하나 이상</strong> 선택할 수 있습니다.<br>
+                            <img src="{jejumapPath}" class="jejumap" alt="제주도 지도"/>
                             </div>
                         </div>
                     </div>
@@ -255,9 +259,11 @@ else:
                 if 'region' not in st.session_state:
                     # 지역 선택 (multiselect)
                     st.write("")
+                    st.markdown("<hr>", unsafe_allow_html=True)
                     visit_region = st.multiselect(
                         "제주도 방문 지역 선택",
-                        options=["동쪽 제주시", "서쪽 제주시", "동쪽 서귀포시", "서쪽 서귀포시"],
+                        options=["제주시 서부 (애월읍, 한림읍, 한경면)", "제주시 (제주시)", "제주시 동부 (조천읍, 구좌읍)",
+                                 "서귀포시 서부 (대정읍, 안덕면)", "서귀포시 (중문, 서귀포시)", "서귀포시 동부 (남원읍, 표선면, 성산읍)"],
                         default=None,
                         label_visibility='collapsed'
                     )
