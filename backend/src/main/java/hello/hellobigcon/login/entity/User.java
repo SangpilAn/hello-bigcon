@@ -1,28 +1,24 @@
 package hello.hellobigcon.login.entity;
 
+import hello.hellobigcon.common.entity.TimeEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Getter @Setter
+@Builder
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User extends TimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
+    @Column(nullable = false)
     private String username;
-    private String password;
+    @Column(nullable = false)
     private String email;
 
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
+    private String picture;
 }
