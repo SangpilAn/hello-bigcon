@@ -32,7 +32,9 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
 
         String token = jwtTokenProvider.createToken(oAuth2User.getName());
 
-        request.getSession().setAttribute("token", token);
+        // TODO 세션에 토큰값을 담는 방식은 JWT 의 무상태 장점을 해침
+        //  따라서 로그아웃 시 프론트에서 해당 토큰값을 제거하는 방식으로 처리가 필요
+//        request.getSession().setAttribute("token", token);
 
         LoginDto loginDto = LoginDto.builder()
                 .name(nickname)

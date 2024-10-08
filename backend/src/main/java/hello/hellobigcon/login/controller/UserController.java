@@ -3,14 +3,15 @@ package hello.hellobigcon.login.controller;
 import hello.hellobigcon.login.entity.User;
 import hello.hellobigcon.login.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -59,11 +60,14 @@ public class UserController {
         }
     }
 
+    @GetMapping("/login")
+    public void login(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/oauth2/authorization/google");
+    }
+
     @GetMapping("/test")
-    public ResponseEntity<Map<String, String>> test(){
-        HashMap<String, String> map = new HashMap<>();
-        map.put("test", "/api/test");
-        return new ResponseEntity<>(map, HttpStatus.OK);
+    public Authentication test(){
+        return SecurityContextHolder.getContext().getAuthentication();
     }
 
     @PostMapping("/logout")

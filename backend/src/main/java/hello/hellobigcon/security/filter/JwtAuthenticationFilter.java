@@ -1,6 +1,7 @@
 package hello.hellobigcon.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hello.hellobigcon.common.dto.ErrorResponse;
 import hello.hellobigcon.common.jwt.JwtTokenProvider;
 import hello.hellobigcon.common.jwt.errors.JwtLogoutException;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -9,6 +10,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,8 +22,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
@@ -32,17 +32,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final ObjectMapper objectMapper;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(
+            @NonNull HttpServletRequest request,
+            @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain
+    ) throws ServletException, IOException {
         try {
             String token = resolveToken(request);
             if (token != null && jwtTokenProvider.validateToken(token)) {
-                // 로그아웃 확인 기능 - 세션의 토큰값으로 확인
-                if (request.getSession().getAttribute("token") == null) {
-                    throw new JwtLogoutException("로그아웃되었습니다.");
-                }
-
                 String username = jwtTokenProvider.getName(token);
 
+                // TODO UserDetailsService 추가 필요
                 UserDetails userDetails = User.builder()
                         .username(username)
                         .password("") // 패스워드 필요 없음
@@ -67,14 +67,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private void setErrorResponse(HttpServletResponse response, String message) throws IOException {
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .error("JWT 에러 발생")
+                .message(message)
+                .build();
+
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 Unauthorized
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-
-        // 에러 메시지 구성
-        Map<String, String> errorResponse = new HashMap<>();
-        errorResponse.put("success", "false");
-        errorResponse.put("message", message);
 
         // JSON으로 응답 반환
         objectMapper.writeValue(response.getWriter(), errorResponse);
