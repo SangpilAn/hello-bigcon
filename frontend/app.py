@@ -1,5 +1,6 @@
 # app.py
 import streamlit as st
+from api.login import render_google_login_button
 
 # 이미지 변수 선언
 titleImgPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/title.png'
@@ -61,8 +62,13 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-# 시작하기 버튼 (or 로그인 버튼)
+# 시작하기 버튼 (or 로그인 버튼) >> 구글 로그인 버튼
 st.write("")
-
 start_button = st.page_link("pages/survey.py",
-                              label="✈️:rainbow[시작하기]🚢")
+                            label="**✈️시작하기🚢**")
+
+
+# 구글 로그인 버튼
+co1, col2, col3 = st.columns(3)
+with col2:
+    render_google_login_button()
