@@ -3,7 +3,6 @@ import streamlit as st
 
 from .widgets import weather, calendar
 from .modal import edit_modal
-from .modal import logout_modal
 
 def show_sidebar():
   ### 1. 사용자 정보 ###
