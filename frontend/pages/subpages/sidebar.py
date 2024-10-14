@@ -7,7 +7,8 @@ from .modal import logout_modal
 
 def show_sidebar():
   ### 1. 사용자 정보 ###
-  st.subheader("{이름}님의 제주도 여행🏝️")
+  if 'user_name' in st.session_state:
+    st.subheader(f":rainbow[{st.session_state['user_name']}]님의 제주 여행🏝️")
   
   # 1-1. 성별
   if 'gender' in st.session_state:
@@ -54,8 +55,3 @@ def show_sidebar():
 
   ### 3. 날씨 위젯 ###
   weather.show_weather()
-
-  ### 4. 로그아웃 버튼 ###
-  if st.button("로그아웃",
-               type='primary'):
-     logout_modal.show_logout_modal()

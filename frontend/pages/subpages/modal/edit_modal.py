@@ -2,9 +2,6 @@
 import streamlit as st
 import datetime
 
-# 이미지 변수 선언
-jejumapPath = 'https://raw.githubusercontent.com/kbr1218/streamlitTest/main/imgs/jejumap3.png'
-
 # sidebar 사용자 정보 수정하기 모달
 @st.dialog("여행 정보 수정하기")
 def show_edit_modal():
@@ -45,9 +42,6 @@ def show_edit_modal():
    st.write("")
 
    # 방문 지역 수정 (멀티셀렉트)
-   st.markdown(f"""
-               <img src="{jejumapPath}" class="jejumap" alt="제주도 지도" style="width: 100%; height: auto;"/>
-   """, unsafe_allow_html=True)
    region = st.multiselect(
       "방문 지역을 선택해주세요:",
       options=["제주시 서부 (애월읍, 한림읍, 한경면)", "제주시 (제주시)", "제주시 동부 (조천읍, 구좌읍)",
