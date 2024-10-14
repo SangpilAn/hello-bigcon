@@ -70,7 +70,7 @@ div.row-widget.stRadio > div {
   flex-direction: row;
 }
 
-/* 제주도 지도 */
-.jejumap {
-  width: 450px;
+/* 텍스트 강조 (친절한 제주도°C)*/
+.title_text {
+  color:#eb8023;
 }
