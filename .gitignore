@@ -16,7 +16,8 @@ __pycache__/
 *.py[cod]
 *.pyo
 venv/
-testdata/
+*.ipynb
+.ipynb_checkpoints/
 
 ### STS ###
 backend/.apt_generated
