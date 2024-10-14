@@ -286,7 +286,6 @@ else:
                                 마지막 질문입니다. <br>
                                 제주도 <strong>어느 지역의 맛집</strong>을 찾으시나요? <br>
                                 <strong>하나 이상</strong> 선택할 수 있습니다.<br>
-                                <img src="{jejumapPath}" class="jejumap" alt="제주도 지도"/>
                                 </div>
                             </div>
                         </div>
