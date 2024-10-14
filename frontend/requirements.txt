@@ -2,6 +2,9 @@
 
 streamlit
 requests
+pandas
 
+# streamlit-folium
+# >> 이 경우에만 `conda install conda-forge::streamlit-folium
 
 # FE 실행 (BE가 실행된 상태에서 FE 디렉토리에서): streamlit run app.py
