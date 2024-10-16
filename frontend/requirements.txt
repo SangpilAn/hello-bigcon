@@ -1,6 +1,6 @@
 # requirements.txt: FE 의존성 목록
 
-streamlit
+streamlit==1.37.1
 requests
 pandas
 
