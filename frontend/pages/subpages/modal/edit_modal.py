@@ -3,7 +3,7 @@ import streamlit as st
 import datetime
 
 # sidebar 사용자 정보 수정하기 모달
-@st.dialog("여행 정보 수정하기")
+@st.dialog("여행 정보 수정하기🖋️")
 def show_edit_modal():
    st.markdown("### 여행 정보를 변경할 수 있습니다.")
 
